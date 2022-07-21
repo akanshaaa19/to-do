@@ -1,0 +1,40 @@
+body{
+    background-color: #232323;
+    color: #fff;
+    padding: 5% 15% 0 15%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 4rem;
+    padding-bottom: 0.625rem;
+}
+
+p{
+    font-size: 1.25rem;
+    color: #828080;
+    width: 20rem;
+    text-align: center;
+    padding-bottom: 1.825rem;
+}
+
+button{
+    padding: 20px 60px;
+    background-color: #AEBCF5;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bolder;
+}
+
+img{
+    height: calc(100vh - 400px);
+    padding: 60px 60px 0 60px;
+    border-radius: 20px;
+}

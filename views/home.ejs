@@ -1,0 +1,48 @@
+<%- include('partials/header'); %>
+
+<div class="app container-fluid">
+    <h1 class="heading">Collections</h1>
+    <div class="main">
+
+            <div class="collection-area row justify-content-start">
+
+                <% collections.forEach((collection)=>{ -%>
+                    
+                    <div class="collection col-md-4 col-sm-6 col-6">
+                        
+                        <div class="collection-header">
+                            <i class="fa-regular fa-square fa-3x" style="color: <%=collection.color%>"></i>
+                            <form action="/deleteCollection" method="post">
+                                <button type="submit" name="collectionId" value="<%=collection._id%>"><i class="fa-solid fa-xmark"></i></button>
+                            </form>
+                        </div>
+                        <a href="/<%=collection.title%>">                        
+                        <div class="collection-footer">
+                            <div class="c-left">
+                                <h2 class="collection-h"><%=collection.title%></h2>
+                                <p class="collection-p"><%=collection.checkedItems.length%>/<%=collection.items.length+collection.checkedItems.length%> done</p>
+                            </div>
+                            <div class="c-right">
+                                <i class="fa-solid fa-chevron-right fa-2x"></i>
+                            </div>
+
+                        </div>
+                    </a>
+                    </div>
+                
+                <% }) -%>
+                <div class="add-new col-md-4 col-sm-6 col-6">
+                    <form action="/" method="post">
+                        <div class="input-div">
+                            <input name="collectionName" placeholder="Collection Name..." type="text" autocomplete="off">
+                            <button type="submit"><i class="fa-solid fa-plus fa-3x"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+    </div>
+
+</div>
+
+    <%- include('partials/footer'); %>
