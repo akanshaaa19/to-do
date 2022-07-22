@@ -10,7 +10,7 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 
-mongoose.connect("mongodb://localhost:27017/todoo");
+mongoose.connect("mongodb+srv://akansha:akansha@cluster0.xujh5ky.mongodb.net/tasks");
 
 const PORT = 3000;
 
@@ -106,10 +106,12 @@ app.post("/addNewTodo", (req, res)=>{
             console.log(err)
         }else{
             foundList.items.push(newItem);
-            foundList.save();
+            foundList.save(()=>{
+                res.redirect("/" + collectionName)
+            });
         }
     })
-    res.redirect("/" + collectionName)
+    
     
 });
 
@@ -137,11 +139,13 @@ app.post("/check", (req, res)=>{
             console.log(err)
         }else{
             foundList.checkedItems.push(checkedItem);
-            foundList.save();
+            foundList.save(()=>{
+                res.redirect("/" + collectionName)
+            });
         }
     })
 
-    res.redirect("/" + collectionName)
+    
 })
 
 app.post("/uncheck", (req, res)=>{
