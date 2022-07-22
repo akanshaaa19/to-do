@@ -12,9 +12,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 mongoose.connect("mongodb+srv://akansha:akansha@cluster0.xujh5ky.mongodb.net/tasks");
 
-const PORT = 3000;
-
-
 const itemsSchema = new mongoose.Schema({
     name: String,
 })
@@ -217,6 +214,8 @@ app.post("/deleteCheckedTodo", (req, res)=>{
 
 })
 
-app.listen(PORT || process.env.PORT, ()=>{
-    console.log(`Server started succesfully`)
-})
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
