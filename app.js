@@ -217,6 +217,6 @@ app.post("/deleteCheckedTodo", (req, res)=>{
 
 })
 
-app.listen(PORT, ()=>{
-    console.log(`Server started at ${PORT}`)
+app.listen(PORT || process.env.PORT, ()=>{
+    console.log(`Server started succesfully`)
 })
